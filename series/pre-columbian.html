@@ -175,6 +175,16 @@
       border-top: 1px solid var(--color-border);
     }
 
+    .series-story .story-content {
+      display: flex;
+      gap: var(--spacing-xl);
+      align-items: flex-start;
+    }
+
+    .series-story .story-text {
+      flex: 1;
+    }
+
     .series-story h2 {
       font-family: var(--font-serif);
       font-size: 1.5rem;
@@ -185,6 +195,28 @@
       color: var(--color-muted);
       line-height: 1.8;
       max-width: 700px;
+    }
+
+    .series-story .story-image {
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .series-story .story-image img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 600px) {
+      .series-story .story-content {
+        flex-direction: column;
+      }
+
+      .series-story .story-image {
+        width: 100%;
+        max-width: 300px;
+      }
     }
 
     /* ===== Lightbox ===== */
@@ -242,6 +274,8 @@
     <a href="../index.html" class="logo">jc._riv</a>
     <ul>
       <li><a href="../index.html">Home</a></li>
+      <li><a href="pre-columbian.html" class="active">Pre-Columbian</a></li>
+      <li><a href="dreams.html">Dreams</a></li>
       <li><a href="../courses/index.html">Courses</a></li>
     </ul>
   </nav>
@@ -420,7 +454,14 @@
 
   <section class="series-story">
     <h2>About this series</h2>
-    <p>I was inspired by pre-Columbian pieces from various museums across Colombia — especially the Museo Arqueológico La Merced in Cali and the Museo del Oro in Bogotá. These collections preserve artifacts from the Tumaco, Nariño, San Agustín, Tierradentro, Calima, Tolima, and Quimbaya cultures. This series of drawings translates those ancestral forms — flora, fauna, people, crafts, religion, and death — into a contemporary visual language.</p>
+    <div class="story-content">
+      <div class="story-text">
+        <p>I was inspired by pre-Columbian pieces from various museums across Colombia — especially the Museo Arqueológico La Merced in Cali and the Museo del Oro in Bogotá. These collections preserve artifacts from the Tumaco, Nariño, San Agustín, Tierradentro, Calima, Tolima, and Quimbaya cultures. This series of drawings translates those ancestral forms — flora, fauna, people, crafts, religion, and death — into a contemporary visual language.</p>
+      </div>
+      <div class="story-image">
+        <img src="../assets/images/pre-columbian/author/author.jpg" alt="Author" />
+      </div>
+    </div>
   </section>
 
   <footer>

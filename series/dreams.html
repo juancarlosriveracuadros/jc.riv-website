@@ -95,6 +95,16 @@
       border-top: 1px solid var(--color-border);
     }
 
+    .series-story .story-content {
+      display: flex;
+      gap: var(--spacing-xl);
+      align-items: flex-start;
+    }
+
+    .series-story .story-text {
+      flex: 1;
+    }
+
     .series-story h2 {
       font-family: var(--font-serif);
       font-size: 1.5rem;
@@ -105,6 +115,28 @@
       color: var(--color-muted);
       line-height: 1.8;
       max-width: 700px;
+    }
+
+    .series-story .story-image {
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .series-story .story-image img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 600px) {
+      .series-story .story-content {
+        flex-direction: column;
+      }
+
+      .series-story .story-image {
+        width: 100%;
+        max-width: 300px;
+      }
     }
 
     /* ===== Lightbox ===== */
@@ -150,6 +182,8 @@
     <a href="../index.html" class="logo">jc._riv</a>
     <ul>
       <li><a href="../index.html">Home</a></li>
+      <li><a href="pre-columbian.html">Pre-Columbian</a></li>
+      <li><a href="dreams.html" class="active">Dreams</a></li>
       <li><a href="../courses/index.html">Courses</a></li>
     </ul>
   </nav>
@@ -287,7 +321,14 @@
 
   <section class="series-story">
     <h2>About this series</h2>
-    <p>This is my first series, where I experimented with different techniques and materials to shape my expressionist style. Each piece is a dreamlike exploration of color, texture, and emotion — a journey into the subconscious where form meets feeling.</p>
+    <div class="story-content">
+      <div class="story-text">
+        <p>This is my first series, where I experimented with different techniques and materials to shape my expressionist style. Each piece is a dreamlike exploration of color, texture, and emotion — a journey into the subconscious where form meets feeling.</p>
+      </div>
+      <div class="story-image">
+        <img src="../assets/images/dreams/author/author-dreams.jpg" alt="Author" />
+      </div>
+    </div>
   </section>
 
   <footer>

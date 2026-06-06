@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>jc._riv — Artist</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero {
+      text-align: left;
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+    }
+
+    .hero {
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .hero .tagline {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .hero .hero-bottom {
+      display: flex;
+      gap: var(--spacing-xl);
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .hero .hero-bottom .bio {
+      flex: 1;
+      line-height: 1.8;
+      color: var(--color-muted);
+    }
+
+    .hero .hero-image {
+      width: 240px;
+      flex-shrink: 0;
+    }
+
+    .hero .hero-image img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .hero-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero .hero-image {
+        width: 180px;
+      }
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+      padding-top: var(--spacing-xl);
+    }
+
+    /* ===== CV Timeline ===== */
+    .timeline {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md) var(--spacing-xl);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: var(--spacing-lg);
+      padding-bottom: var(--spacing-lg);
+      position: relative;
+      border-left: 2px solid var(--color-border);
+      padding-left: var(--spacing-lg);
+      margin-left: var(--spacing-sm);
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      position: absolute;
+      left: -7px;
+      top: 4px;
+    }
+
+    .timeline-year {
+      font-weight: 700;
+      color: var(--color-accent);
+      white-space: nowrap;
+      min-width: 70px;
+    }
+
+    .timeline-desc strong {
+      display: block;
+      color: var(--color-text);
+    }
+
+    .timeline-desc {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .timeline-desc .type {
+      font-size: 0.8rem;
+      color: var(--color-accent);
+      margin-top: 2px;
+    }
+
+    .timeline-desc .location {
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+
+    .timeline-desc .support {
+      font-size: 0.8rem;
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    .timeline-desc .date {
+      font-size: 0.8rem;
+      margin-top: 4px;
+      color: var(--color-text);
+    }
+
+    /* ===== Portfolio Links ===== */
+    .portfolio-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-lg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing-md) var(--spacing-xl);
+    }
+
+    .portfolio-card {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      text-align: center;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .portfolio-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .portfolio-card .card-img {
+      width: 100%;
+      border-radius: calc(var(--border-radius) - 2px);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .portfolio-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .portfolio-card p {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .portfolio-card .card-link {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Courses Link ===== */
+    .courses-link {
+      display: flex;
+      gap: var(--spacing-xl);
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing-md) var(--spacing-xl);
+    }
+
+    .courses-link .courses-text {
+      flex: 1;
+    }
+
+    .courses-link h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .courses-link p {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .courses-link .courses-image {
+      width: 240px;
+      flex-shrink: 0;
+    }
+
+    .courses-link .courses-image img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 600px) {
+      .courses-link {
+        flex-direction: column;
+      }
+
+      .courses-link .courses-image {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">jc._riv</a>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="courses/index.html">Courses</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <h1>Juan Carlos Rivera Cuadros</h1>
+      <p class="tagline">Painter from Cali, Colombia &mdash; M.Sc. Process Engineering</p>
+      <div class="hero-bottom">
+        <p class="bio">
+          My work spans cubist, abstract, and surrealist styles — combining intellectual
+          ideas with rich color harmonies and texture. I have exhibited across Germany,
+          Belgium, and Monaco, including at the Venezuelan Embassy in Frankfurt. My
+          series <em>Precolombino</em>, inspired by pre-Hispanic Latin American cultures,
+          was selected for exhibition at the Carrousel du Louvre in Paris.
+        </p>
+        <div class="hero-image">
+          <img src="assets/images/index/author_louvre.jpg" alt="Juan Carlos Rivera Cuadros" />
+        </div>
+      </div>
+    </section>
+
+    <h2 class="section-title">Series</h2>
+
+    <section class="portfolio-links">
+      <a href="series/dreams.html" class="portfolio-card">
+        <img src="assets/images/dreams/four-eyes.jpg" alt="Four Eyes" class="card-img" />
+        <h3>Dreams</h3>
+        <p>My first series, exploring expressionist techniques and dream-like narratives through mixed media.</p>
+        <span class="card-link">View series →</span>
+      </a>
+      <a href="series/pre-columbian.html" class="portfolio-card">
+        <img src="assets/images/pre-columbian/shaman-of-el-dorado.jpg" alt="Shaman of El Dorado" class="card-img" />
+        <h3>Pre-Columbian</h3>
+        <p>Drawings inspired by ancestral artifacts from Colombian museums — a bridge between past and present.</p>
+        <span class="card-link">View series →</span>
+      </a>
+    </section>
+
+    <h2 class="section-title">Painting Courses</h2>
+
+    <a href="courses/index.html" class="courses-link">
+      <div class="courses-text">
+        <h3>Water Lilies: A Pastel Chalk Workshop</h3>
+        <p>Master soft pastels to recreate the signature light and atmosphere of Impressionist masterpieces. Layer vibrant colors, navigate tonal values, and capture the essence of Impressionism.</p>
+        <span class="card-link">View courses →</span>
+      </div>
+      <div class="courses-image">
+        <img src="assets/images/courses/pastel-chalk/paslte-chalk-workshop-1.jpeg" alt="Pastel Chalk Workshop" />
+      </div>
+    </a>
+
+    <h2 class="section-title">Exhibitions</h2>
+
+    <section class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-year">2022</span>
+        <div class="timeline-desc">
+          <strong>Precolombino — Haier Experience Lounge</strong>
+          <span class="type">Exhibition</span>
+          <span class="location">Kaiserstraße 36, 60329 Frankfurt, Germany</span>
+          <span class="date">26.11.2022</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2022</span>
+        <div class="timeline-desc">
+          <strong>Art Shopping — Carrousel du Louvre</strong>
+          <span class="type">International contemporary art fair</span>
+          <span class="location">Les Salles du Carrousel, Paris, France</span>
+          <span class="date">21.10.2022 – 23.10.2022</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2022</span>
+        <div class="timeline-desc">
+          <strong>Precolombino</strong>
+          <span class="type">Group exhibition</span>
+          <span class="location">The Muisca Art Space, 8 rue d'Ormesson, 75004 Paris</span>
+          <span class="date">04.05.2022 – 04.10.2022</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2015</span>
+        <div class="timeline-desc">
+          <strong>Honorary Consulate of Colombia in Stuttgart</strong>
+          <span class="type">Group exhibition (permanent exhibition)</span>
+          <span class="location">Honorary Consulate of Colombia in Stuttgart, Germany</span>
+          <span class="date">01.09.2015</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2015</span>
+        <div class="timeline-desc">
+          <strong>Latinoamerica: una sola muestra. La unión de los Pueblos</strong>
+          <span class="type">Group exhibition</span>
+          <span class="location">Consulate General of the Bolivarian Republic of Venezuela, Frankfurt am Main, Germany</span>
+          <span class="date">28.05.2015</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2015</span>
+        <div class="timeline-desc">
+          <strong>Notre Pachamama en Amérique Latine</strong>
+          <span class="type">Group exhibition</span>
+          <span class="location">Maison de l'Amérique Latine de Monaco, France</span>
+          <span class="support">With the support of COLOMBIArtística</span>
+          <span class="date">07.04.2015 – 31.04.2015</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2015</span>
+        <div class="timeline-desc">
+          <strong>Präkolumbische Kunst</strong>
+          <span class="type">Exhibition</span>
+          <span class="location">Café midori, Ludwigsburg, Germany</span>
+          <span class="support">With the support of Honorary Consulate of Colombia in Stuttgart</span>
+          <span class="date">19.03.2015 – 26.08.2015</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2015</span>
+        <div class="timeline-desc">
+          <strong>FEMMES DU MONDE LIÈGE 2013</strong>
+          <span class="type">Group exhibition</span>
+          <span class="location">CPCR Asbl – Rue Jonruelle 11 Liege, Belgium</span>
+          <span class="support">With the support of COLOMBIArtística</span>
+          <span class="date">06.03.2015 – 11.03.2015</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2015</span>
+        <div class="timeline-desc">
+          <strong>Kunstkater</strong>
+          <span class="type">Group exhibition and life painting</span>
+          <span class="location">Café Faust, Stuttgart, Germany</span>
+          <span class="date">30.01.2015</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2013</span>
+        <div class="timeline-desc">
+          <strong>FEMME du MONDE an PRINTEMPS</strong>
+          <span class="type">Group exhibition</span>
+          <span class="location">Galeria la SPIRALE, Liege, Belgium</span>
+          <span class="support">With the support of COLOMBIArtística</span>
+          <span class="date">17.04.2013 – 28.04.2013</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2012</span>
+        <div class="timeline-desc">
+          <strong>ALEGRArt</strong>
+          <span class="type">Group exhibition</span>
+          <span class="location">Le clos de Velaine, Jambes - Namur, Belgium</span>
+          <span class="support">With the support of COLOMBIArtística</span>
+          <span class="date">17.11.2012 – 07.01.2013</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; jc._riv</p>
+  </footer>
+
+</body>
+</html>
