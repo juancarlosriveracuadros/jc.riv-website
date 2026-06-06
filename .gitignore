@@ -20,3 +20,7 @@ Thumbs.db
 # inside your project folder, list that folder here so they don't get pushed to GitHub.
 # Example:
 # _source_images/
+
+# Deprecated image folders
+assets/images/dreams/deprecated/
+assets/images/pre-columbian/deprecated/

@@ -87,6 +87,26 @@
       }
     }
 
+    /* ===== Story ===== */
+    .series-story {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--spacing-xl) var(--spacing-md);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .series-story h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .series-story p {
+      color: var(--color-muted);
+      line-height: 1.8;
+      max-width: 700px;
+    }
+
     /* ===== Lightbox ===== */
     .lightbox {
       display: none;
@@ -104,6 +124,9 @@
     }
 
     .lightbox img {
+      max-width: 95vw;
+      max-height: 95vh;
+      object-fit: contain;
       border-radius: 4px;
     }
 
@@ -135,59 +158,137 @@
     <section class="series-hero">
       <!-- CHANGE: Series title and description -->
       <h1>Dreams</h1>
-      <p>This is my first series, where I experimented with different techniques and materials to shape my expressionist style.</p>
     </section>
 
     <section class="gallery">
-      <!-- CHANGE: Replace with actual artworks -->
-      <!-- Copy one <a> block per artwork, then add a matching lightbox div below -->
       <a href="#lb-1">
         <figure>
-          <img src="https://picsum.photos/seed/painting1/600/450" alt="Artwork title" loading="lazy" />
-          <figcaption>
-            <strong>Artwork Title</strong>
-            Medium, Year
-          </figcaption>
+          <img src="../assets/images/dreams/angel.jpg" alt="Angel" loading="lazy" />
+          <figcaption><strong>Angel</strong></figcaption>
         </figure>
       </a>
-
       <a href="#lb-2">
         <figure>
-          <img src="https://picsum.photos/seed/painting2/600/450" alt="Artwork title" loading="lazy" />
-          <figcaption>
-            <strong>Artwork Title</strong>
-            Medium, Year
-          </figcaption>
+          <img src="../assets/images/dreams/angle-in-motion.jpg" alt="Angle in Motion" loading="lazy" />
+          <figcaption><strong>Angle in Motion</strong></figcaption>
         </figure>
       </a>
-
       <a href="#lb-3">
         <figure>
-          <img src="https://picsum.photos/seed/painting3/600/450" alt="Artwork title" loading="lazy" />
-          <figcaption>
-            <strong>Artwork Title</strong>
-            Medium, Year
-          </figcaption>
+          <img src="../assets/images/dreams/discussion-about-the-ideas.jpg" alt="Discussion About the Ideas" loading="lazy" />
+          <figcaption><strong>Discussion About the Ideas</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-4">
+        <figure>
+          <img src="../assets/images/dreams/dream-observer.jpg" alt="Dream Observer" loading="lazy" />
+          <figcaption><strong>Dream Observer</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-5">
+        <figure>
+          <img src="../assets/images/dreams/earthly-man.jpg" alt="Earthly Man" loading="lazy" />
+          <figcaption><strong>Earthly Man</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-6">
+        <figure>
+          <img src="../assets/images/dreams/four-eyes.jpg" alt="Four Eyes" loading="lazy" />
+          <figcaption><strong>Four Eyes</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-7">
+        <figure>
+          <img src="../assets/images/dreams/humanity-and-ideas.jpg" alt="Humanity and Ideas" loading="lazy" />
+          <figcaption><strong>Humanity and Ideas</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-8">
+        <figure>
+          <img src="../assets/images/dreams/man-and-roots.jpg" alt="Man and Roots" loading="lazy" />
+          <figcaption><strong>Man and Roots</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-9">
+        <figure>
+          <img src="../assets/images/dreams/travelling-in-dreams.jpg" alt="Travelling in Dreams" loading="lazy" />
+          <figcaption><strong>Travelling in Dreams</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-10">
+        <figure>
+          <img src="../assets/images/dreams/women-1.jpg" alt="Women 1" loading="lazy" />
+          <figcaption><strong>Women 1</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-11">
+        <figure>
+          <img src="../assets/images/dreams/women-2.jpg" alt="Women 2" loading="lazy" />
+          <figcaption><strong>Women 2</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-12">
+        <figure>
+          <img src="../assets/images/dreams/women-and-wings.jpg" alt="Women and Wings" loading="lazy" />
+          <figcaption><strong>Women and Wings</strong></figcaption>
         </figure>
       </a>
     </section>
   </main>
 
-  <!-- Lightbox overlays — one per artwork; id must match the href above -->
   <div class="lightbox" id="lb-1">
     <a href="#" class="close">&times;</a>
-    <img src="https://picsum.photos/seed/painting1/600/450" alt="Artwork title" />
+    <img src="../assets/images/dreams/angel.jpg" alt="Angel" />
   </div>
-
   <div class="lightbox" id="lb-2">
     <a href="#" class="close">&times;</a>
-    <img src="https://picsum.photos/seed/painting2/600/450" alt="Artwork title" />
+    <img src="../assets/images/dreams/angle-in-motion.jpg" alt="Angle in Motion" />
   </div>
-
   <div class="lightbox" id="lb-3">
     <a href="#" class="close">&times;</a>
-    <img src="https://picsum.photos/seed/painting3/600/450" alt="Artwork title" />
+    <img src="../assets/images/dreams/discussion-about-the-ideas.jpg" alt="Discussion About the Ideas" />
   </div>
+  <div class="lightbox" id="lb-4">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/dreams/dream-observer.jpg" alt="Dream Observer" />
+  </div>
+  <div class="lightbox" id="lb-5">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/dreams/earthly-man.jpg" alt="Earthly Man" />
+  </div>
+  <div class="lightbox" id="lb-6">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/dreams/four-eyes.jpg" alt="Four Eyes" />
+  </div>
+  <div class="lightbox" id="lb-7">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/dreams/humanity-and-ideas.jpg" alt="Humanity and Ideas" />
+  </div>
+  <div class="lightbox" id="lb-8">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/dreams/man-and-roots.jpg" alt="Man and Roots" />
+  </div>
+  <div class="lightbox" id="lb-9">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/dreams/travelling-in-dreams.jpg" alt="Travelling in Dreams" />
+  </div>
+  <div class="lightbox" id="lb-10">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/dreams/women-1.jpg" alt="Women 1" />
+  </div>
+  <div class="lightbox" id="lb-11">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/dreams/women-2.jpg" alt="Women 2" />
+  </div>
+  <div class="lightbox" id="lb-12">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/dreams/women-and-wings.jpg" alt="Women and Wings" />
+  </div>
+
+  <section class="series-story">
+    <h2>About this series</h2>
+    <p>This is my first series, where I experimented with different techniques and materials to shape my expressionist style. Each piece is a dreamlike exploration of color, texture, and emotion — a journey into the subconscious where form meets feeling.</p>
+  </section>
 
   <footer>
     <p>&copy; jc._riv</p>
