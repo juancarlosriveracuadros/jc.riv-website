@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- CHANGE: Page title -->
+  <title>Dreams — jc._riv</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .series-hero {
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+    }
+
+    .series-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .series-hero p {
+      color: var(--color-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .gallery {
+      column-count: 3;
+      column-gap: var(--spacing-lg);
+      padding: var(--spacing-lg) var(--spacing-md);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .gallery a {
+      display: inline-block;
+      width: 100%;
+      text-decoration: none;
+      color: inherit;
+      break-inside: avoid;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .gallery figure {
+      background: #fff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .gallery figure:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery img {
+      width: 100%;
+      display: block;
+    }
+
+    .gallery figcaption {
+      padding: var(--spacing-md);
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .gallery figcaption strong {
+      display: block;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        column-count: 1;
+      }
+    }
+
+    /* ===== Lightbox ===== */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .lightbox img {
+      border-radius: 4px;
+    }
+
+    .lightbox .close {
+      position: fixed;
+      top: var(--spacing-md);
+      right: var(--spacing-lg);
+      font-size: 2.5rem;
+      color: #fff;
+      text-decoration: none;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="logo">jc._riv</a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../courses/index.html">Courses</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="series-hero">
+      <!-- CHANGE: Series title and description -->
+      <h1>Dreams</h1>
+      <p>This is my first series, where I experimented with different techniques and materials to shape my expressionist style.</p>
+    </section>
+
+    <section class="gallery">
+      <!-- CHANGE: Replace with actual artworks -->
+      <!-- Copy one <a> block per artwork, then add a matching lightbox div below -->
+      <a href="#lb-1">
+        <figure>
+          <img src="https://picsum.photos/seed/painting1/600/450" alt="Artwork title" loading="lazy" />
+          <figcaption>
+            <strong>Artwork Title</strong>
+            Medium, Year
+          </figcaption>
+        </figure>
+      </a>
+
+      <a href="#lb-2">
+        <figure>
+          <img src="https://picsum.photos/seed/painting2/600/450" alt="Artwork title" loading="lazy" />
+          <figcaption>
+            <strong>Artwork Title</strong>
+            Medium, Year
+          </figcaption>
+        </figure>
+      </a>
+
+      <a href="#lb-3">
+        <figure>
+          <img src="https://picsum.photos/seed/painting3/600/450" alt="Artwork title" loading="lazy" />
+          <figcaption>
+            <strong>Artwork Title</strong>
+            Medium, Year
+          </figcaption>
+        </figure>
+      </a>
+    </section>
+  </main>
+
+  <!-- Lightbox overlays — one per artwork; id must match the href above -->
+  <div class="lightbox" id="lb-1">
+    <a href="#" class="close">&times;</a>
+    <img src="https://picsum.photos/seed/painting1/600/450" alt="Artwork title" />
+  </div>
+
+  <div class="lightbox" id="lb-2">
+    <a href="#" class="close">&times;</a>
+    <img src="https://picsum.photos/seed/painting2/600/450" alt="Artwork title" />
+  </div>
+
+  <div class="lightbox" id="lb-3">
+    <a href="#" class="close">&times;</a>
+    <img src="https://picsum.photos/seed/painting3/600/450" alt="Artwork title" />
+  </div>
+
+  <footer>
+    <p>&copy; jc._riv</p>
+  </footer>
+
+</body>
+</html>

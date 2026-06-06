@@ -1,23 +1,22 @@
-### AL ###
-#Template for AL projects for Dynamics 365 Business Central
-#launch.json folder
+# OS-generated files (System junk)
+.DS_Store
+.DS_Store?
+._*
+Thumbstacks.db
+Ehthumbs.db
+Thumbs.db
+
+# Configuration & IDEs
 .vscode/
-#Cache folder
-.alcache/
-#Symbols folder
-.alpackages/
-#Snapshots folder
-.snapshots/
-#Testing Output folder
-.output/
-#Extension App-file
-*.app
-#Rapid Application Development File
-rad.json
-#Translation Base-file
-*.g.xlf
-#License-files
-*.bclicense
-*.flf
-#Test results file
-TestResults.xml
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Optional: Large Source Images (Crucial for Artists)
+# If you keep your original uncompressed high-res images (TIFF, RAW, massive PNGs) 
+# inside your project folder, list that folder here so they don't get pushed to GitHub.
+# Example:
+# _source_images/

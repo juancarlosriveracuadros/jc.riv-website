@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pre-Columbian — jc._riv</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .series-hero {
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+    }
+
+    .series-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .series-hero p {
+      color: var(--color-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .gallery {
+      column-count: 3;
+      column-gap: var(--spacing-lg);
+      padding: var(--spacing-lg) var(--spacing-md);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .gallery a {
+      display: inline-block;
+      width: 100%;
+      text-decoration: none;
+      color: inherit;
+      break-inside: avoid;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .gallery-pair {
+      display: flex;
+      gap: var(--spacing-lg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing-md) var(--spacing-lg);
+    }
+
+    .gallery-pair a {
+      flex: 1;
+    }
+
+    .gallery-pair figure {
+      background: #fff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .gallery-pair figure:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-pair img {
+      width: 100%;
+      display: block;
+    }
+
+    .gallery-pair figcaption {
+      padding: var(--spacing-md);
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .gallery-pair figcaption strong,
+    .gallery-trio figcaption strong {
+      display: block;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .gallery-trio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-lg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing-md) var(--spacing-lg);
+    }
+
+    .gallery-trio figure {
+      background: #fff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .gallery-trio figure:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-trio img {
+      width: 100%;
+      display: block;
+    }
+
+    .gallery-trio figcaption {
+      padding: var(--spacing-md);
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .gallery-trio a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (max-width: 640px) {
+      .gallery-trio {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-pair {
+        flex-direction: column;
+      }
+    }
+
+    .gallery figure {
+      background: #fff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .gallery figure:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery img {
+      width: 100%;
+      display: block;
+    }
+
+    .gallery figcaption {
+      padding: var(--spacing-md);
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .gallery figcaption strong {
+      display: block;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    /* ===== Lightbox ===== */
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 95vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .lightbox .close {
+      position: fixed;
+      top: var(--spacing-md);
+      right: var(--spacing-lg);
+      font-size: 2.5rem;
+      color: #fff;
+      text-decoration: none;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        column-count: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="logo">jc._riv</a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../courses/index.html">Courses</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="series-hero">
+          <h1>Pre-Columbian</h1>
+      <p>Inspired by pre-Columbian pieces from various museums across Colombia — especially the Museo Arqueológico La Merced in Cali, housed in a 16th-century colonial convent on the very site where Santiago de Cali was founded, and the Museo del Oro in Bogotá. Together these collections preserve artifacts from the Tumaco, Nariño, San Agustín, Tierradentro, Calima, Tolima, and Quimbaya cultures. This series of drawings translates those ancestral forms — flora, fauna, people, crafts, religion, and death — into a contemporary visual language.</p>
+    </section>
+
+    <div class="gallery-pair">
+      <a href="#lb-1">
+        <figure>
+          <img src="../assets/images/pre-columbian/shamanic-masks-1.jpg" alt="Shamanic Masks 1" loading="lazy" />
+          <figcaption><strong>Shamanic Masks 1</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-2">
+        <figure>
+          <img src="../assets/images/pre-columbian/shamanic-masks-2.jpg" alt="Shamanic Masks 2" loading="lazy" />
+          <figcaption><strong>Shamanic Masks 2</strong></figcaption>
+        </figure>
+      </a>
+    </div>
+
+    <div class="gallery-trio">
+      <a href="#lb-4">
+        <figure>
+          <img src="../assets/images/pre-columbian/bird-and-crawling-animal.jpg" alt="Bird and Crawling Animal" loading="lazy" />
+          <figcaption><strong>Bird and Crawling Animal</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-8">
+        <figure>
+          <img src="../assets/images/pre-columbian/frog-and-rein.jpg" alt="Frog and Rein" loading="lazy" />
+          <figcaption><strong>Frog and Rein</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-14">
+        <figure>
+          <img src="../assets/images/pre-columbian/the-feline-lizard.png" alt="The Feline Lizard" loading="lazy" />
+          <figcaption><strong>The Feline Lizard</strong></figcaption>
+        </figure>
+      </a>
+    </div>
+
+    <div class="gallery-trio">
+      <a href="#lb-9">
+        <figure>
+          <img src="../assets/images/pre-columbian/golden-shape.png" alt="Golden Shape" loading="lazy" />
+          <figcaption><strong>Golden Shape</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-10">
+        <figure>
+          <img src="../assets/images/pre-columbian/indigenous-collector-1.jpg" alt="Indigenous Collector 1" loading="lazy" />
+          <figcaption><strong>Indigenous Collector 1</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-11">
+        <figure>
+          <img src="../assets/images/pre-columbian/indigenous-collector-2.jpg" alt="Indigenous Collector 2" loading="lazy" />
+          <figcaption><strong>Indigenous Collector 2</strong></figcaption>
+        </figure>
+      </a>
+    </div>
+
+    <div class="gallery-trio">
+      <a href="#lb-3">
+        <figure>
+          <img src="../assets/images/pre-columbian/alcarraza.png" alt="Alcarraza" loading="lazy" />
+          <figcaption><strong>Alcarraza</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-7">
+        <figure>
+          <img src="../assets/images/pre-columbian/feline-humanoid.png" alt="Feline Humanoid" loading="lazy" />
+          <figcaption><strong>Feline Humanoid</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-5">
+        <figure>
+          <img src="../assets/images/pre-columbian/brakkum.jpg" alt="Brakkum" loading="lazy" />
+          <figcaption><strong>Brakkum</strong></figcaption>
+        </figure>
+      </a>
+    </div>
+
+    <section class="gallery">
+      <a href="#lb-6">
+        <figure>
+          <img src="../assets/images/pre-columbian/clay-vessel.png" alt="Clay Vessel" loading="lazy" />
+          <figcaption><strong>Clay Vessel</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-12">
+        <figure>
+          <img src="../assets/images/pre-columbian/shaman-of-el-dorado.jpg" alt="Shaman of El Dorado" loading="lazy" />
+          <figcaption><strong>Shaman of El Dorado</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-13">
+        <figure>
+          <img src="../assets/images/pre-columbian/shamanic-trance.jpg" alt="Shamanic Trance" loading="lazy" />
+          <figcaption><strong>Shamanic Trance</strong></figcaption>
+        </figure>
+      </a>
+      <a href="#lb-15">
+        <figure>
+          <img src="../assets/images/pre-columbian/winged-shaman.jpg" alt="Winged Shaman" loading="lazy" />
+          <figcaption><strong>Winged Shaman</strong></figcaption>
+        </figure>
+      </a>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lb-1">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/shamanic-masks-1.jpg" alt="Shamanic Masks 1" />
+  </div>
+  <div class="lightbox" id="lb-2">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/shamanic-masks-2.jpg" alt="Shamanic Masks 2" />
+  </div>
+  <div class="lightbox" id="lb-3">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/alcarraza.png" alt="Alcarraza" />
+  </div>
+  <div class="lightbox" id="lb-4">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/bird-and-crawling-animal.jpg" alt="Bird and Crawling Animal" />
+  </div>
+  <div class="lightbox" id="lb-5">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/brakkum.jpg" alt="Brakkum" />
+  </div>
+  <div class="lightbox" id="lb-6">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/clay-vessel.png" alt="Clay Vessel" />
+  </div>
+  <div class="lightbox" id="lb-7">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/feline-humanoid.png" alt="Feline Humanoid" />
+  </div>
+  <div class="lightbox" id="lb-8">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/frog-and-rein.jpg" alt="Frog and Rein" />
+  </div>
+  <div class="lightbox" id="lb-9">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/golden-shape.png" alt="Golden Shape" />
+  </div>
+  <div class="lightbox" id="lb-10">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/indigenous-collector-1.jpg" alt="Indigenous Collector 1" />
+  </div>
+  <div class="lightbox" id="lb-11">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/indigenous-collector-2.jpg" alt="Indigenous Collector 2" />
+  </div>
+  <div class="lightbox" id="lb-12">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/shaman-of-el-dorado.jpg" alt="Shaman of El Dorado" />
+  </div>
+  <div class="lightbox" id="lb-13">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/shamanic-trance.jpg" alt="Shamanic Trance" />
+  </div>
+  <div class="lightbox" id="lb-14">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/the-feline-lizard.png" alt="The Feline Lizard" />
+  </div>
+  <div class="lightbox" id="lb-15">
+    <a href="#" class="close">&times;</a>
+    <img src="../assets/images/pre-columbian/winged-shaman.jpg" alt="Winged Shaman" />
+  </div>
+
+  <footer>
+    <p>&copy; jc._riv</p>
+  </footer>
+
+</body>
+</html>

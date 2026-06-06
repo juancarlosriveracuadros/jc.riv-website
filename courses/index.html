@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Painting Courses — jc._riv</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .courses-header {
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+    }
+
+    .courses-header h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .courses-header p {
+      color: var(--color-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--spacing-lg);
+      padding: var(--spacing-lg) var(--spacing-md);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* ===== COURSE CARD ===== */
+    /* To add a new course: copy one <article> block below,
+       paste it inside .course-grid, and change the content. */
+
+    .course-card {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow var(--transition);
+    }
+
+    .course-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .course-card .tag {
+      display: inline-block;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: var(--spacing-md);
+      align-self: flex-start;
+    }
+
+    .course-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .course-card p {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: var(--spacing-md);
+      flex: 1;
+    }
+
+    .course-card .meta {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--spacing-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .course-card .meta a {
+      font-weight: 600;
+    }
+
+    @media (max-width: 480px) {
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="logo">jc._riv</a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html" class="active">Courses</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="courses-header">
+      <h1>Painting Courses</h1>
+      <p>Workshops and courses taught by jc._riv.</p>
+    </section>
+
+    <section class="course-grid">
+
+      <!-- ================================================================
+           COURSE CARD TEMPLATE — Copy this <article> block to add a new course
+           ================================================================ -->
+      <article class="course-card">
+        <span class="tag">Workshop</span>
+        <h3>Course Title</h3>
+        <p>Short description of the course — what students will learn, the format, and who it's for.</p>
+        <div class="meta">
+          <span>Date / Location</span>
+          <a href="#">Details →</a>
+        </div>
+      </article>
+      <!-- ===== END COURSE CARD TEMPLATE ===== -->
+
+      <!-- Example course (delete or keep as reference) -->
+      <article class="course-card">
+        <span class="tag">Beginner</span>
+        <h3>Watercolor Basics</h3>
+        <p>Learn fundamental watercolor techniques: wet-on-wet, glazing, and color mixing. All materials included.</p>
+        <div class="meta">
+          <span>Mar 2026 / Studio</span>
+          <a href="#">Details →</a>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <span class="tag">Advanced</span>
+        <h3>Oil Painting: Light &amp; Shadow</h3>
+        <p>Explore chiaroscuro and impasto techniques in a small-group setting. Prerequisite: intermediate drawing experience.</p>
+        <div class="meta">
+          <span>May 2026 / Online</span>
+          <a href="#">Details →</a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; jc._riv</p>
+  </footer>
+
+</body>
+</html>
