@@ -1,0 +1,47 @@
+#!/bin/bash
+# Pre-commit hook: check for broken internal links in HTML files
+
+echo "==> Checking for broken internal links..."
+
+ERRORS=0
+
+for file in $(find . -name "*.html" -not -path "./.git/*" -not -path "./.githooks/*"); do
+  [ -f "$file" ] || continue
+  dir=$(dirname "$file")
+
+  sedtmp=$(mktemp /tmp/precommit-sed.XXXXXX)
+  sed -n 's/.*href="\([^"]*\)".*/\1/p; s/.*src="\([^"]*\)".*/\1/p' "$file" | sort -u > "$sedtmp"
+  while IFS= read -r ref; do
+    [ -z "$ref" ] && continue
+    # Skip external URLs
+    echo "$ref" | grep -q '^http://' && continue
+    echo "$ref" | grep -q '^https://' && continue
+    echo "$ref" | grep -q '^mailto:' && continue
+    echo "$ref" | grep -q '^tel:' && continue
+    echo "$ref" | grep -q '^#' && continue
+    target="$dir/$ref"
+    target="${target#./}"
+    if [ ! -f "$target" ] && [ ! -f "$ref" ]; then
+      echo "  MISSING: $file -> $ref"
+      ERRORS=$((ERRORS + 1))
+    fi
+  done < "$sedtmp"
+
+  sed -n 's/.*href="#\([a-zA-Z0-9_-]*\)".*/\1/p' "$file" | sort -u > "$sedtmp"
+  while IFS= read -r anchor; do
+    [ -z "$anchor" ] && continue
+    if ! grep -q "id=\"$anchor\"" "$file"; then
+      echo "  MISSING ANCHOR: $file -> #$anchor"
+      ERRORS=$((ERRORS + 1))
+    fi
+  done < "$sedtmp"
+  rm "$sedtmp"
+done
+
+if [ $ERRORS -gt 0 ]; then
+  echo "==> $ERRORS broken link(s) found. Commit blocked."
+  exit 1
+else
+  echo "==> All internal links valid."
+  exit 0
+fi

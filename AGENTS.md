@@ -24,6 +24,10 @@ Static multi-page website for an artist. Built with raw HTML + CSS, no framework
 3. Changes committed and pushed to GitHub Pages
 4. New series/course = copy template, edit data, add nav link, commit
 
+## Git Hooks
+- Pre-commit hook in `.githooks/pre-commit` checks for broken internal links
+- Enable it after cloning: `git config core.hooksPath .githooks`
+
 ## Tech Stack
 - HTML5, CSS3 (Flexbox, Grid, Custom Properties)
 - Google Fonts (Inter + Merriweather)
