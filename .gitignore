@@ -14,13 +14,9 @@ Thumbs.db
 *.njsproj
 *.sln
 *.swp
-
-# Optional: Large Source Images (Crucial for Artists)
-# If you keep your original uncompressed high-res images (TIFF, RAW, massive PNGs) 
-# inside your project folder, list that folder here so they don't get pushed to GitHub.
-# Example:
-# _source_images/
-
+ 
 # Deprecated image folders
-assets/images/dreams/deprecated/
-assets/images/pre-columbian/deprecated/
+deprecated/
+
+# Prevent accidental commit of original uncompressed source images
+_source_images/
