@@ -5,3 +5,28 @@ tasks:
     desc: Start local HTTP server to preview the website
     cmds:
       - python3 -m http.server 8000
+
+  check-links:
+    desc: Check for broken internal links in HTML files
+    cmds:
+      - bash .githooks/pre-commit
+
+  deploy:
+    desc: Commit all changes and push to GitHub Pages
+    cmds:
+      - git add -A
+      - "git commit -m \"{{.CLI_ARGS | default \"update website\"}}\""
+      - git push
+
+  new-series:
+    desc: Copy series template for a new art series
+    cmds:
+      - "cp templates/series-template.html series/series-{{.CLI_ARGS}}.html"
+      - "echo Created series/series-{{.CLI_ARGS}}.html"
+
+  status:
+    desc: Show working tree status and recent commits
+    cmds:
+      - git status
+      - echo "---"
+      - git log --oneline -5
